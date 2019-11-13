@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <input type="hidden" id="datePartern" value="yyyy/m-dd" />
+    <script type="text/javascript">
+        var $datePartern = document.getElementById('datePartern');
+        //m/d/yy => 1/2/17
+        //mm/dd/yyyy => 01/12/2017
+        alert($datePartern.value.length);
+        alert($datePartern.value);
+
+        function formatDate(input) {
+            var date = input.getDate(),
+                month = input.getMonth() + 1,
+                year = input.getFullYear(),
+                patern = $datePartern.value;
+
+            var mLetters = 0,
+                dLetters = 0,
+                yLetters = 0,
+                positions = new Array(5),
+                currentPostition = 0,
+                currentLetter = '';
+
+            for (let i = 0; i < patern.length; i++) {
+                switch (patern[i]) {
+                    case 'm': mLetters++; break;
+                    case 'd': dLetters++; break;
+                    case 'y': yLetters++; break;
+                    default: break;
+                }
+                if (patern[i] !== currentLetter) {
+                    positions[currentPostition] = patern[i];
+                    currentLetter = patern[i];
+                    currentPostition++;
+                }
+            }
+            //alert(positions);
+            if (mLetters > 1 && month < 10) {
+                month = '0' + month;
+            }
+
+            if (dLetters > 1 && date < 10) {
+                date = '0' + date;
+            }
+
+            if (yLetters <= 2) {
+                year = (year + '').substr(-2);
+            }
+
+            var result = '';
+            for (let i = 0; i < positions.length; i++) {
+                switch (positions[i]) {
+                    case 'm': result += month; break;
+                    case 'd': result += date; break;
+                    case 'y': result += year; break;
+                    default: result += positions[i]; break;
+                }
+            }
+            return result;
+        }
+
+        var today = new Date();
+        console.log(formatDate(today));
+
+        //var number = 10; //Primitive
+        //var number1 = new Number(); //object constructor
+        //var number2 = Number(5);// Conversion Function
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .divClass {
+	        border: 5px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="level1" class="divClass">
+        <div id="level2" class="divClass">
+            <div id="level3" class="divClass">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //bubble là chạy từ t` trong ra ngoài còn capturing là ngoài vào trong
+        var $level1 = document.getElementById('level1'), 
+            $level2 = document.getElementById('level2'), 
+            $level3 = document.getElementById('level3');
+        $level1.addEventListener('click', function () {
+            alert(this.id);
+            this.style.border = '5px solid green';
+        }, true);//true là bật capturing false là không bật
+        $level2.addEventListener('click', function () {
+            alert(this.id);
+            this.style.border = '5px solid red';
+        }, true);
+        $level3.addEventListener('click', function () {
+            alert(this.id);
+            this.style.border = '5px solid blue';
+        }, true);
+        
+    </script>
+</body>
+</html>

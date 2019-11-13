@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <script type="text/javascript">
+        //Global
+        var num1 = 10;
+        document.write('outside: ' + num1 + '<br/>');
+        {
+            //Global
+            var num1 = 5;
+            document.write('inside: ' + num1 + '<br/>');
+            //Global
+            num1 = 8;
+            document.write('inside: ' + num1 + '<br/>');
+        }
+        //Global
+        document.write('outside: ' + num1 + '<br/><br/><br/>');
+
+
+        
+        //Global
+        let num2 = 10;
+        document.write('outside: ' + num2 + '<br/>');
+        {
+            //Local
+            let num2 = 5;
+            document.write('inside: ' + num2 + '<br/>');
+            //Local
+            num2 = 8;
+            document.write('inside: ' + num2 + '<br/>');
+        }
+        //Global
+        document.write('outside: ' + num2 + '<br/><br/><br/>');
+
+          
+        //Global
+        var num3 = 10;
+        document.write('outside: ' + num3 + '<br/>');
+        {
+            //Local
+            let num3 = 5;
+            document.write('inside: ' + num3 + '<br/>');
+            //Local
+            num3 = 8;
+            document.write('inside: ' + num3 + '<br/>');
+        }
+        //Global
+        document.write('outside: ' + num3 + '<br/><br/><br/>');
+
+
+
+        //Global
+        const num4 = 10;
+        document.write('outside: ' + num4 + '<br/>');
+        {
+            //Local
+            const num4 = 5;
+            document.write('inside: ' + num4 + '<br/>');
+            //Local
+            //num4 = 8;
+            //document.write('inside: ' + num4 + '<br/>');
+        }
+        //Global
+        document.write('outside: ' + num4 + '<br/>');
+
+
+        for (var i = 0; i < 10; i++) {
+
+        }
+
+        //var i;
+        //for (i = 0; i < 10; i++) {
+
+        //}
+        //document.write('i = ' + i);
+    </script>
+</body>
+</html>

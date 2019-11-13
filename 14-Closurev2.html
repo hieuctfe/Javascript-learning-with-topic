@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <input type="button" value="Button1" class="btn"/>
+    <input type="button" value="Button2" class="btn"/>
+    <input type="button" value="Button3" class="btn"/>
+    <input type="button" value="Button4" class="btn"/>
+    <input type="button" value="Button5" class="btn"/>
+    <script type="text/javascript">
+        var $buttons = document.getElementsByClassName('btn');
+      
+        function addEventForButtons(buttonArray) {
+            for (var i = 0; i < buttonArray.length; i++) {
+                let j = i;
+                buttonArray[i].onclick = function () {
+                    alert(j);
+//                    alert(i);
+                }
+            }
+        }
+        
+        function onClick(parameter) {
+            function process() {
+                alert(parameter);
+            }
+            return process;
+        }
+
+
+        function addEventForButtons2(buttonArray) {
+         
+            for (var i = 0; i < buttonArray.length; i++) {
+                buttonArray[i].onclick = onClick(i); //process => keep parameter
+            }
+
+        }
+
+        function addEventForButtons3(buttonArray) {
+            for (let i = 0; i < buttonArray.length; i++) {
+                buttonArray[i].onclick = function () {
+                    alert(i);
+                }
+            }
+
+        }
+        addEventForButtons($buttons);
+    </script>
+</body>
+</html>

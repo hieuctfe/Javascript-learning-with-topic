@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        var result1 = add(1, 2);
+        document.write('Result 1: ' + result1 + '<br/>');
+
+        //Hoisting Function - khi chạy sẽ load lên đầu
+        function add(firstNumber, secondNumber) {
+            return firstNumber + secondNumber;
+        }
+            
+        function f1(){
+            function f2(){
+                
+            }
+            
+            return f2;
+        }
+        
+        f1()()
+        
+
+        //Anonymous Function Expression
+        var func1 = function (firstNumber, secondNumber) {
+            return firstNumber + secondNumber;
+        }
+        
+        var func1a = (firstNumber, secondNumber) => firstNumber + secondNumber;
+        var result2 = func1(3, 4);
+        document.write('Result 2: ' + result2 + '<br/>');
+
+        //Named Function Expression{
+        var func2 = function process(firstNumber, secondNumber) {
+        
+            return firstNumber + secondNumber;
+        }   
+        var result3 = func2(5, 6);
+        document.write('Result 3: ' + result3 + '<br/>');
+
+        //Self-invoking function{
+        var result4 = (function (firstNumber, secondNumber) {
+            return firstNumber + secondNumber;
+        })(10, 20);
+        document.write('Result 4: ' + result4 + '<br/>');
+
+
+        //Use Function Object
+        var firstP = 'firstParmeter';
+        var func4 = new Function(firstP, 'secondParameter','return firstParmeter + secondParameter');
+        var result5 = func4(12, 12);
+        document.write('Result 5: ' + result5 + '<br/>');
+
+        //Lamda Expression
+        //var func5 = (a, b) => a + b;
+        var func5 = (a, b) => {
+            document.write('Add: ')
+            return a + b;
+        };
+        var result6 = func5(100, 200);
+        document.write('Result 6: ' + result6 + '<br/>')
+
+       
+    </script>
+</body>
+</html>

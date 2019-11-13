@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        var strArray = ['a', 'b', 'c', 'd', 'e'];
+
+        //(Stack) LIFO => Last in First out
+        strArray.push('f'); //a,b,c,d,e,f
+        strArray.push('g'); //a,b,c,d,e,f,g
+        strArray.pop(); //a,b,c,d,e,f
+        console.log(strArray);
+
+        //(Queue) FIFO => First in First out (unshift <=> enqueue, shift <=> dequeue)
+        strArray.unshift('1');//1,a,b,c,d,e,f
+        strArray.unshift('2');//2,1,a,b,c,d,e,f
+        strArray.unshift('3');//3,2,1,a,b,c,d,e,f
+        strArray.shift();//2,1,a,b,c,d,e,f
+        console.log(strArray);
+
+        //2,1,a,b,c,d,e,f
+        strArray.splice(2, 2);// Tu vi tri 2 (a), xoa di 2 phan tu (a, b)
+        console.log(strArray);
+        //2,1,c,d,e,f
+        strArray.splice(2, 1, 'x', 'y');//Tu vi tri 2 (c), xoa di 1 phan tu (c), chen vao ben trai 2 phan tu (x, y)
+        console.log(strArray);
+        //2,1,x,y,d,e,f
+        strArray.splice(4, 0, 'z');//Tu vi tri thu 4 (d), ko xoa, ma chen vao ben trai (d) 1 phan tu (z)
+        console.log(strArray);
+        //2,1,x,y,z,d,e,f
+        strArray.splice(8, 0, 'v');
+        console.log(strArray);
+        //2,1,x,y,z,d,e,f,v
+    </script>
+</body>
+</html>

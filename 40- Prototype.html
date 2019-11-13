@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        console.log(Object.prototype__proto__ == null);
+        
+        console.log(Function.prototype.__proto__ == Object.prototype);
+        
+        function Animal () {
+            
+        }
+        //<=>
+        var Animal = new Function('');
+        
+        function Student(name) {
+            this.Name = name;
+        }
+        Student.prototype.getName = function () {
+            return this.Name;
+        }
+        
+        function Cat() {
+            this.Sound = 'Meo meo';
+        }
+        
+        var s = new Student();
+        
+        console.log(s instanceof Student);
+        console.log(s instanceof Object);
+        Student.prototype.__proto__ = Cat.prototype;
+        console.log(s instanceof Cat);
+        
+        Object.prototype.SayHello = function () { };
+        SayHello();
+        window.SayHello();
+        var sa.SayHello();
+        
+
+    </script>
+</body>
+</html>

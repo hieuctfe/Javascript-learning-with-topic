@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    //để tạo quan hệ kế thừa trong js ta tạo 1 instance của protype -> object đại diện sau đó gán ....Prototype = object đại diện đó
+    //vd : 
+    <script type="text/javascript">
+        function Employee(name, age) {
+            this.Name = name;
+            this.Age = age;
+        }
+        
+        function Manager(age) {
+            this.Age = age;
+        }
+        
+        Employee.prototype.getInfor = function () {
+            return this.Name + ' ' + this.Age;
+        }
+        
+        function Manager (position)
+        {
+            this.Position = position;
+        }
+            
+        var emp1 = new Employee('', 0);
+        Manager.prototype = emp1;//inheritance
+        
+        var m = new Manager('CEO');
+        m.Name = 'sang';
+        m.Age = 52;
+
+        
+        Manager.prototype.getInfor = function () {
+            return this.Name + ' ' + this.Age + ' ' + this.Position;
+        }
+        
+        function GetInforOfManager(manager) {
+            Manager.prototype.getInfor = function() {
+                return this.Name + ' ' + this.Age + ' ' + this.Position;
+            }
+            
+            console.log(m.getInfor());
+        }
+        
+        console.log(m.getInfor());
+        GetInforOfManager(m);
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Student(options) {
+            //static field
+            Student.tempId = ++Student.tempId || 0;
+            Student.count = ++Student.count || 1;
+            
+            //private field
+            var _id = Student.tempId;
+            var _name = options.name
+            var _age = checkAge(options.age);
+            var _mark = options.mark;
+            
+            //Property
+            Object.defineProperty(this, 'Id', {
+                get: function() {
+                    return _id;
+                }
+            });
+            
+            Object.defineProperty(this, 'Name', {
+                get: function() {
+                    return _name;
+                },
+                set: function(value) {
+                    _name = value;
+                }
+            });
+            
+            Object.defineProperty(this, 'Age', {
+                get: function() {
+                    return _age;
+                },
+                set: function(value) {
+                    _age = checkAge(value);
+                }
+            });
+            
+            Object.defineProperty(this, 'Mark', {
+                get: function() {
+                    return _mark;
+                },
+                set: function(value) {
+                    _mark = value;
+                }
+            });
+            
+            //private function
+            function isPath() {
+                return (_mark > 5) ? 'Pass' : 'Failed';
+            }
+            
+            //way2
+            //var isPath = function() {
+            //  return (_mark > 5) ? 'Pass' : 'Failed';
+            //}
+            
+            function checkAge(value) {
+                return (isNaN(value) || value <= 0) ? 0 : value;
+            }
+            
+            //static function
+            Student.Count = function() {
+                return Student.count;
+            }
+        
+            //priviledge function(same as public, access private members, called from outside)
+            this.isPath = function () {
+                return isPath();
+            }
+        }
+        //public function (access property and priveled function)
+        Student.prototype.getInfor = function() {
+            return `${this.Id} - ${this.Name} - ${this.Age} - ${this.Mark}`;
+        }
+        
+        var student1 = new Student({name : 'sang', age : 18, mark: 10});
+        var student2 = new Student({name : 'anh', age : 18, mark: 9});
+        var student3 = new Student({name : 'sang anh', age : 18, mark: 4});
+        
+        document.write(student1.getInfor() + student1.isPath() + '<br/>');
+        document.write(student2.getInfor() + student2.isPath() + '<br/>');
+        document.write(student3.getInfor() + student3.isPath() + '<br/>');
+        document.write('Number of students : ' + Student.Count() + '<br/>');
+    </script>    
+</body>
+</html>

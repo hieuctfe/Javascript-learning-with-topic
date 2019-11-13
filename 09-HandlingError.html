@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+
+        var result = divide(10, 0);
+        document.write(typeof result !== 'undefined'? result: "Don't have result!");
+
+        function divide(a, b) {
+            try {
+                if (b == 0) {
+                    throw{
+                        messasge: 'Divide by zero errors',
+                        description: 'Denominator must be different from 0',
+                        stack:'sada'
+                    }
+                } else {
+                    return a / b;
+                }
+            } catch (ex) {
+                document.write(ex.messasge);
+                document.write('<br/>');
+                document.write(ex.description);
+                document.write('<br/>')
+                document.write(ex.stack);
+                document.write('<br/>')
+            }
+            //return undefine
+        }
+    </script>
+</body>
+</html>

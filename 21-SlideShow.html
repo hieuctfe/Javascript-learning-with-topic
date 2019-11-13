@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        #slideShow {
+            height: 300px;
+            width: 400px;
+        }
+    </style>
+
+    <!-- 
+        css external
+        css internal
+        css inline
+
+        inline > internal >  external > Html's Atribute  {Ko co important}
+       
+         -->
+</head>
+<body>
+    <img id="slideShow" src="" alt="" width="600" height="800"/>
+    <!-- Html's Atribute -->
+    <p id="figure"></p>
+
+    <input type="button" value="Previous" id="btnPrevious" />
+    <input type="button" value="Zoom In" id="btnZoomIn" />
+    <input type="button" value="Zoom Out" id="btnZoomOut" />
+    <input type="button" value="Next" id="btnNext" />
+
+    <script type="text/javascript">
+        var $slideShow = document.getElementById('slideShow'),
+            $figure = document.getElementById('figure'),
+            $btnNext = document.getElementById('btnNext'),
+            $btnPrevious = document.getElementById('btnPrevious'),
+            $btnZoomIn = document.getElementById('btnZoomIn'),
+            $btnZoomOut = document.getElementById('btnZoomOut');
+
+        //class
+        function ImageSLideShow(path, figure) {
+            this.Path = path;//Property
+            this.Figure = figure;
+        }
+
+        //data - received from server
+        var imageList = [
+            new ImageSLideShow('flower1.jpg', 'beautiful 1'),//0
+            new ImageSLideShow('flower2.jpg', 'beautiful 2'),//1
+            new ImageSLideShow('flower3.jpg', 'beautiful 3'),//2
+            new ImageSLideShow('flower4.jpeg', 'beautiful 4'),//3
+            new ImageSLideShow('flower5.jpeg', 'beautiful 5'),//4
+        ];
+
+        var currentIndexImage = 0;
+
+        function init() {
+            $slideShow.src = 'img/' + imageList[0].Path;
+            $figure.innerText = imageList[0].Figure;
+            currentIndexImage = 0;
+        }
+
+        //button
+        function nextImage() {
+            if (currentIndexImage == (imageList.length - 1)) {
+                currentIndexImage = 0;
+            } else {
+                currentIndexImage++;
+            }
+            $slideShow.src = 'img/' + imageList[currentIndexImage].Path;
+            $figure.innerText = imageList[currentIndexImage].Figure;
+        }
+
+        function previousImage() {
+            if (currentIndexImage == 0) {
+                currentIndexImage = imageList.length - 1;
+            } else {
+                currentIndexImage--
+            }
+            $slideShow.src = 'img/' + imageList[currentIndexImage].Path;
+            $figure.innerText = imageList[currentIndexImage].Figure;
+        }
+
+        function zoomIn() {
+            //Lay html's atribute (with va height)
+            //$slideShow.width = $slideShow.width * 1.5; 600*1.5
+            //$slideShow.height = $slideShow.height * 1.5; 800*1.5
+
+            //Lay html's atribute (style)
+            //$slideShow.style.width = $slideShow.style.width * 1.5;  // slideShow.style.width = 0;
+            //$slideShow.style.height = $slideShow.style.height * 1.5;// slideShow.style.heigh = 0; 
+
+            var widthValue = window.getComputedStyle($slideShow).getPropertyValue('width');
+            var heightValue = window.getComputedStyle($slideShow).height;
+
+            $slideShow.style.width = widthValue.replace('px', '') * 1.5 + 'px';
+            $slideShow.style.height = heightValue.replace('px', '') * 1.5 + 'px';
+
+        }
+
+        function zoomout() {
+            var widthValue = window.getComputedStyle($slideShow).getPropertyValue('width');
+            var heightValue = window.getComputedStyle($slideShow).height;
+
+            $slideShow.style.width = widthValue.replace('px', '') * 0.75 + 'px';
+            $slideShow.style.height = heightValue.replace('px', '') * 0.75 + 'px';
+
+        }
+
+        $btnNext.onclick = nextImage;
+        $btnPrevious.onclick = previousImage;
+        $btnZoomIn.onclick = zoomIn;
+        $btnZoomOut.onclick = zoomout;
+
+        //Selft Invoking function
+        (function AutoSlideShow() {
+            setTimeout(function () {
+                nextImage();
+                AutoSlideShow();
+            }, 2000);
+        })();
+        
+    </script>
+    <script type="text/javascript">
+        init(); 
+    </script>
+</body>
+</html>

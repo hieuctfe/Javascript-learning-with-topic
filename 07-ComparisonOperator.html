@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        // == abstraction equality => convert to same type => absoluly equality
+        // === !== absoluly equality => compare type, compare value
+        document.write('1------------');
+        document.write('<br/>');
+        document.write(true == 'true'); //1 == 'true' //1 == NaN
+        document.write('<br/>');
+        document.write(true === 'true');//false
+        document.write('<br/><br/>');
+        
+        document.write('2------------');
+        document.write('<br/>');
+        document.write(true == '1');//1 == '1' // 1 == 1
+        document.write('<br/>');
+        document.write(true === '1');//false
+        document.write('<br/>');
+        document.write('<br/><br/>');
+
+        document.write('3------------');
+        document.write('<br/>');
+        document.write(true == 1);
+        document.write('<br/>');
+        document.write(true === 1);//false
+        document.write('<br/>');
+        document.write(false == 0); //+0 == 0
+        document.write('<br/>');
+        document.write(false == +0);//+0 == +0
+        document.write('<br/>');
+        document.write(false == -0);//+0 == -0
+        document.write('<br/><br/>');
+
+        document.write('4------------');
+        document.write('<br/>');
+        document.write(1 == '1');
+        document.write('<br/>');
+        document.write(1 === '1');//false
+        document.write('<br/><br/>');
+
+        document.write('5------------');
+        document.write('<br/>');
+        document.write(null == 'null');
+        document.write('<br/>');
+        document.write(null === 'null');//false
+        document.write('<br/><br/>');
+
+        document.write('6------------');
+        document.write('<br/>');
+        document.write(undefined == 'undefined');
+        document.write('<br/>');
+        document.write(undefined === 'undefined');//false
+        document.write('<br/><br/>');
+
+        document.write('7------------');
+        document.write('<br/>');
+        document.write(null == undefined);
+        document.write('<br/>');
+        document.write(null === undefined);//false
+        document.write('<br/><br/>');
+
+        var a = new String('hello');//string
+        var b = new String('hello');
+        var c = 'hello';
+        console.log(typeof a);
+        console.log(typeof c);
+        document.write('8------------');
+        document.write('<br/>');
+        document.write(a == b);//a, b la referent type, khac vung nho
+        document.write('<br/>');
+        document.write(a == c);// a(object) => a(string) // a(string) == c(string)
+        
+        
+    </script>
+</body>
+</html>

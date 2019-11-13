@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        var result;
+        var sumFunc = function process(array, index, sum) {
+            if (array.length == 0 || index < 0) {
+                return 0;
+            }
+            console.log('1');
+            if (typeof index === 'undefined') {
+                index = 0;
+            }
+            console.log('2');
+
+            if (typeof sum === 'undefined') {
+                sum = 0;
+            }
+            console.log('3');
+            console.log(sum);
+            if (index < array.length) {
+                sum += array[index];
+            } else {
+                return sum;
+            }
+            return process(array, ++index, sum);
+        }
+
+        document.write(sumFunc(numbers));
+    </script>
+</body>
+</html>

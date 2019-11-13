@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Banh
+    </title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <input type="button" value="Add new row" id="btnAddRow" />
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="chkAll"></th>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Unit</th>
+            </tr>
+        </thead>
+        <tbody id="chkList">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>Product 1</td>
+                <td>10.000</td>
+                <td>kg</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td>Product 2</td>
+                <td>10.000</td>
+                <td>kg</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>3</td>
+                <td>Product 3</td>
+                <td>10.000</td>
+                <td>kg</td>
+            </tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        var $chkAll = document.getElementById('chkAll'),
+            $chkList = document.getElementById('chkList'),
+            $chkItems = $chkList.querySelectorAll('input[type="checkbox"]');
+
+        $chkAll.onclick = function() {
+            
+            var result = false;
+            if (this.checked) {
+                result = true;
+            }
+            $chkItems = $chkList.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < $chkItems.length; i++) {
+                $chkItems[i].checked = result;
+            }
+        }
+
+        for (var i = 0; i < $chkItems.length; i++) {
+            $chkItems[i].onclick = function () {
+                var $selectedItems = $chkList.querySelectorAll('input[type="checkbox"]:checked');
+                if ($chkItems.length == $selectedItems.length) {
+                    $chkAll.checked = true;
+                } else
+                    $chkAll.checked = false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var $btnAddRow = document.getElementById('btnAddRow'),
+            dataPatern = '<td><input type="checkbox"></td><td>{{id}}</td><td>Product {{id}}</td><td>10.000</td><td>kg</td>',
+            currentId = 4;
+        
+        $btnAddRow.onclick = function() {
+            var $tr = document.createElement('tr');
+            $tr.innerHTML = dataPatern.replace(/{{id}}/gi, currentId++);
+            $chkList.appendChild($tr);
+            
+            //$chkList.innerHTML += dataPatern.replace(/{{id}}/gi, currentId++);
+        }
+        
+    </script>
+</body>
+
+</html>

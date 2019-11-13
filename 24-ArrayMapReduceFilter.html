@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        //map, filter, reduce
+        var nums = [5, 10, 15, 20, 25, 30];
+
+        //map, so luong phan tu cua mang moi khong doi
+        var nums1 = nums.map(function (element, index, array) {
+            return element * 10 ;
+        });
+        document.write(nums1 + '<br/>');
+
+        var nums2 = nums.filter(function (element, index, array) {
+            return element > 25;
+        });
+        document.write(nums2 + '<br/>');
+
+        var nums3 = nums.filter((element, index, array) => element > 25);
+        document.write(nums3 + '<br/>');
+
+        //previousElement = 5; nextElement = 10;
+        //previousElement = previousElement + nextElement = 5 + 10 = 15; nextElement = 15
+        //previousElement = previousElement + nextElement = 15 + 15 = 30; nextElement = 20
+        var nums4 = nums.reduce(function (previousElement, nextElement, index, array) {
+            return previousElement + nextElement;
+        })
+        document.write(nums4 + '<br/>')
+    </script>
+</body>
+</html>

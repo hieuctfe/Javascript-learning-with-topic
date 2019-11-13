@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8"/>
+    <style>
+        .box {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box"></div>
+<div id="abc">21.5</div>
+<script type="text/javascript">
+    var div = document.getElementsByClassName('box')[0];
+    console.log(div);
+    div.style.backgroundColor = 'green';
+</script>
+<script>
+var a = document.getElementById('abc').innerHTML;
+console.log(+a+3);
+</script>
+</body>
+</html>

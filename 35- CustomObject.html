@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //Constructor function => tạo ra 1 prototype (class)
+        function Student(name, age) {
+            //property
+            this.Name = name,
+            this.Age = age,
+            //method
+            this.getInfor = function () {
+                return `${this.Name} ${this.Age}`;
+            }
+        }
+        
+        //create instance of prototype(class)
+        var student1 = new Student('Ngoc', 18);
+        var student2 = new Student('Manh', 25);
+        document.write(student1.getInfor() + '<br/>');
+        document.write(student2.getInfor() + '<br/>')
+        
+        //Literal Notation => tạo ra 1 real object (instance) không cần thông qua prototype(Class)
+        var student3 = {
+            name : 'Mi',
+            age : 20,
+            getInfor : function () {
+                return this.name + ' ' + this.age;
+            }
+        };
+        document.write(student3.getInfor() + '<br/>');
+        
+        student3.name = 'Vuong Di',
+        document.write(student3.getInfor() + '<br/>');
+        
+        student3['name'] = 'Mi Ha',
+        document.write(student3.getInfor() + '<br/>');
+        
+    </script>
+</body>
+</html>

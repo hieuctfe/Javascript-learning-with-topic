@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        function increaseByOne() {
+            var count = 0;
+            return ++count;
+        }
+        document.write('------------------</br>');
+        document.write(increaseByOne() + '</br>');
+        document.write(increaseByOne() + '</br>');
+        document.write(increaseByOne() + '</br>');
+        document.write(increaseByOne() + '</br>');
+        document.write(increaseByOne() + '</br>');
+
+        function increaseByOne2() {
+            var count = 0;
+            function process() {
+                return ++count;
+            }
+            return process(); //=> instance cua process => execute
+        }
+        document.write('------------------</br>');
+        document.write(increaseByOne2() + '</br>');
+        document.write(increaseByOne2() + '</br>');
+        document.write(increaseByOne2() + '</br>');
+        document.write(increaseByOne2() + '</br>');
+        document.write(increaseByOne2() + '</br>');
+
+        function increaseByOne3() {
+            var count = 0;
+            function process() {
+                return ++count;
+            }
+            return process;
+        }
+        document.write('------------------</br>');
+        document.write(increaseByOne3 + '</br>');
+        document.write(increaseByOne3 + '</br>');
+        document.write(increaseByOne3 + '</br>');
+        document.write(increaseByOne3 + '</br>');
+        document.write(increaseByOne3 + '</br>');
+        
+        document.write('------------------</br>');
+        document.write(increaseByOne3() + '</br>');//=> process[0x0001] => count[0x10001]
+        document.write(increaseByOne3() + '</br>');//=> process[0x0002] => count[0x10002]
+        document.write(increaseByOne3() + '</br>');//=> process[0x0003] => count[0x10003]
+        document.write(increaseByOne3() + '</br>');//=> process[0x0004] => count[0x10004]
+        document.write(increaseByOne3() + '</br>');//=> process[0x0005] => count[0x10005]
+        
+        document.write('------------------</br>');
+        document.write(increaseByOne3()() + '</br>');//=> process[0x0001] => count[0x10001]
+        document.write(increaseByOne3()() + '</br>');//=> process[0x0002] => count[0x10002]
+        document.write(increaseByOne3()() + '</br>');//=> process[0x0003] => count[0x10003]
+        document.write(increaseByOne3()() + '</br>');//=> process[0x0004] => count[0x10004]
+        document.write(increaseByOne3()() + '</br>');//=> process[0x0005] => count[0x10005]
+        
+
+        
+        document.write('------------------</br>');
+        var increaseByOneFunc = increaseByOne3();//=> process[0x0006] => count = 0;
+        document.write(increaseByOneFunc() + '</br>');//=> process[0x0006]
+        document.write(increaseByOneFunc() + '</br>');//=> process[0x0006]
+        document.write(increaseByOneFunc() + '</br>');//=> process[0x0006]
+        document.write(increaseByOneFunc() + '</br>');//=> process[0x0006]
+        document.write(increaseByOneFunc() + '</br>');//=> process[0x0006]
+    </script>
+</body>
+</html>

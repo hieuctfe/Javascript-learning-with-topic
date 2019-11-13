@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        //if (null) {
+        //    alert('123');
+        //} else {
+        //    alert('456');
+        //}
+
+        //if (undefined) {
+        //    alert('123');
+        //} else {
+        //    alert('456');
+        //}
+
+        //if (0) {
+        //    alert('123');
+        //} else {
+        //    alert('456');
+        //}
+
+        //if ('') {
+        //    alert('123');
+        //} else {
+        //    alert('456');
+        //}
+
+        //if (NaN) {
+        //    alert('123');
+        //} else {
+        //    alert('456');
+        //}
+
+        function isDigit(digit) {
+
+            //isNaN => true: khong phai la so, false: la so
+            if (!isNaN(parseInt(digit))) {
+                alert('Digit: ' + digit);
+            } else
+                alert('NaN');
+            
+        }
+
+        isDigit('NaN');
+        isDigit('');
+        isDigit();
+    </script>
+</body>
+</html>

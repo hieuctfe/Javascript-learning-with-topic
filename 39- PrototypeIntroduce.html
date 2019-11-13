@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script type="text/javascript">
+        function Student(name) {
+            this.Name = name;
+            
+            function getName() {
+                return this.Name;
+            }
+            
+            alert(getName());
+        }
+        
+        //mỗi khi tạo 1 prototype(Class) trong js js sẽ sinh ra 2 thứ là object prototype đó và function prototype
+        Student.prototype.Age = 20;
+        Student.prototype.getAge = function () {
+            return this.Age;
+        }
+        
+        Student('Sang');
+        console.log(Student);
+        
+        var s1 = new Student('Sang2');
+        console.log(s1);
+        console.log(s1.Age);
+        console.log(s1.__proto__ == Student.prototype);
+        
+    </script>    
+</body>
+</html>

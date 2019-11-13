@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        function Student(id, name, age) {
+            this.Id = id;
+            this.Name = name;
+            this.Age = age;
+        }
+
+        var list = [
+            new Student(1, "Manh", 25),
+            new Student(2, "Ngoc", 20),
+            new Student(3, "An", 19),
+            new Student(4, "Binh", 24),
+            new Student(5, "Mai", 30),
+        ];
+
+        //list.sort(compareStudentByAge);
+        list.sort(compareStudentByName);
+        for (let i = 0; i < list.length; i++) {
+            document.write(list[i].Id + ' ' + list[i].Name + ' ' + list[i].Age + '<br/>');
+        }
+
+        function compareStudentByAge(x, y) {
+            return x.Age - y.Age;
+        }
+
+        function compareStudentByName(x, y) {
+            if (x.Name > y.Name) {
+                return 1;
+            } else if(x.Name < y.Name) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var s1 = new Student(1, 'abc', 20);
+        var s2 = new Student(1, 'abc', 20);
+
+        Student.prototype.equals1 = function (x) {
+            return this.Id == x.Id && this.Name == x.Name;
+        }
+        document.write('Compare: ' + s1.equals1(s2));
+    </script>
+</body>
+</html>

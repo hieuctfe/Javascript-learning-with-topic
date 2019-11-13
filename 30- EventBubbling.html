@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .divClass {
+	        border: 5px solid black;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="level1" class="divClass">
+        <div id="level2" class="divClass">
+            <div id="level3" class="divClass">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        //kích hoạt t` trong cùng thì những element cha có cùng sự kiện sẽ đc gọi -- event bubbling
+        var $level1 = document.getElementById('level1'), 
+            $level2 = document.getElementById('level2'), 
+            $level3 = document.getElementById('level3');
+        $level1.onclick = function () {
+            alert(this.id);
+            this.style.border = '5px solid green';
+        }
+        $level2.onclick = function () {
+            alert(this.id);
+            this.style.border = '5px solid red';
+        }
+        $level3.onclick = function () {
+            //dùng để tắt buble event
+            event = event || window.event;
+            event.target = event.target || event.srcElement;
+            if (event.stopPropagation)
+                event.stopPropagation();//trình duyệt mới
+            else
+                event.cancelBubble = true;//trình duyệt cũ
+            
+            
+            alert(this.id);
+            this.style.border = '5px solid blue';
+        }
+        
+    </script>
+</body>
+</html>

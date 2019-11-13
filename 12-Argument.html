@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        function add(firstNumber, secondNumber) {
+            console.log(secondNumber);
+            return firstNumber + secondNumber;
+        }
+
+        document.write(add(1, 2) + '</br>');
+        document.write(add(5) + '</br>');
+        document.write(add2(1, 2, 3, 4) + '</br>');
+        document.write(add.length + '</br>');
+
+        function add2() {
+            var sum = 0;   
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+    </script>
+</body>
+</html>

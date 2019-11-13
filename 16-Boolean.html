@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        var primitiveTrue = true; 
+        var primitiveFalse = false;
+        var functionTrue = Boolean(true);
+        var functionFalse = Boolean(false);//functionFalse = false
+        var constructorTrue = new Boolean(true);
+        var constructorFalse = new Boolean(false);//object
+
+        console.log(typeof primitiveTrue);//boolean
+        console.log(typeof functionTrue);//boolean
+        console.log(typeof constructorTrue);//object
+
+        if (primitiveFalse) {//if(false)
+            console.log('Hello 1');
+        }
+
+        if (functionFalse) {//if(false)
+            console.log('Hello 2');
+        }
+
+        if (constructorFalse) {//if(object)
+            console.log('Hello 3');
+        }
+        if (typeof constructorFalse === 'object') {
+            console.log('Hello 3');
+        }
+    </script>
+</body>
+</html>

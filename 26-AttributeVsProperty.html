@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <input type="text" value="abc" id="txtTest" data-gender="Male"/> <!--(html1) | type, value, id => atribute-->
+    <script type="text/javascript">
+        //Document Object Model = DOM
+
+        //{type: text, value:"abc", id:"txtTest", dataset:{gender:"Male"}} (object1)| type, value, id => propertyz
+
+        var $txtTest = document.getElementById('txtTest');
+
+        console.log($txtTest.getAttribute('value'));//Lay tren code (html1)
+        console.log($txtTest.value);//Lay trong (object1) cua cay DOM
+
+        $txtTest.setAttribute('value', 'def');//Doi value tren code (html1), update => (object1)
+        console.log($txtTest.getAttribute('value'));//Lay tren code (html1) => def
+        console.log($txtTest.value);//Lay trong (object1) cua cay DOM => def
+
+        $txtTest.value = 'ghi';//Doi value cua (object1), ko update code (html1)
+        console.log($txtTest.getAttribute('value'));//Lay tren code (html1) => def
+        console.log($txtTest.value);//Lay trong (object1) cua cay DOM => ghi
+
+        console.log($txtTest.getAttribute('data-gender'));
+        console.log($txtTest.dataset.gender);
+    </script>
+</body>
+</html>

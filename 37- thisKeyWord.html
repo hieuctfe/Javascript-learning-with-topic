@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        this.str = 'Full String';
+        console.log(typeof this);
+        console.log('this is window ' + (this === window));
+        console.log('this is Window ' + (this === Window));
+        console.log('this is instance Window ' + (this instanceof Window));
+        console.log('window is instance Window ' + (window instanceof Window));
+        
+        //Window => prototype, class,...
+        //window => instance
+        function Student(name) {
+            this.Name = name;
+        }
+        
+        console.log(this.Name);// -> undefined
+        console.log(window.Name);// -> undefined
+        
+        Student('Sang');//Function => this(golbal), this == windows
+        
+        var s1 = new Student();//Constructor function =>this == Student
+        
+        console.log(this.Name);// -> Sang
+        console.log(window.Name);// -> Sang
+        
+        
+        
+    </script>
+</body>
+</html>

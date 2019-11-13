@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Shape(name) {
+            this.Name = name;
+        }
+        
+        Shape.prototype.Draw = function () {
+            return 'this is generic shape';
+        }
+        
+        //Rectangle
+        function Rectangle(name) {
+            Shape.call(this, name);
+        }
+        
+        Rectangle.prototype = new Shape('');
+        Rectangle.prototype.Draw = function () {
+            return 'this is Rectangle';
+        }
+        
+        //Triangle
+        function Triangle (name) {
+            Shape.call(this, name);
+        }
+        
+        Triangle.prototype = new Shape('');
+        Triangle.prototype.Draw = function () {
+            return 'this is Triangle';
+        }
+        
+        //Circle
+        function Circle (name) {
+            Shape.call (this, name);
+        }
+        Circle.prototype = new Shape('');
+        Circle.prototype.Draw = function () {
+            return 'this is Circle';
+        }
+        
+        var shapes = [new Rectangle('rec'), new Triangle('tri'), new Circle('cri')];
+        for (var i = 0; i < shapes.length; i++) {
+            console.log(shapes[i].Draw());
+        }
+        
+        
+    </script>
+</body>
+</html>

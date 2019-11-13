@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        //Primitive type
+        var str = "abc";//string
+        var num = 1;//Number
+        var bol = true;//Boolean
+
+        //Wrapper Object
+        var strObj = new String("cdef");//Object //Constructor Object
+        var numObj = new Number(12);//Object
+        var bolObj = new Boolean(false);//Object
+
+        //Conversion Function
+        var str1 = String(13);//String
+        var num1 = Number(21323);//Number
+        var bol1 = Boolean(true);//Booleam
+
+  
+        var title = "I Love Code School";
+        console.log("Use substring");
+        console.log(title.substring(7, 18));
+        console.log(title.substring(18, 7));
+        console.log(title.substring(7));
+        console.log(title.substring(-2));
+
+        console.log("Use substr");
+        console.log(title.substr(2, 4));
+        console.log(title.substr(4, 2));
+        console.log(title.substr(2));
+        console.log(title.substr(-2));
+
+        console.log("Use slice");
+        console.log(title.slice(7, 11));
+        console.log(title.slice(11, 7));
+        console.log(title.slice(7));
+        console.log(title.slice(-2));
+
+        /*
+            substring vs slice
+            - slice: xử lý số âm
+            - substring: tự swap hai vị trí, start > end
+            - còn lại là giống nhau hết
+        */
+
+        console.log(Number('abc'));
+        console.log(parseInt('abc'));
+        console.log(parseFloat('abc'));
+        console.log(parseInt('2.2'));
+        console.log(parseFloat('2.2'));
+    </script>
+</body>
+</html>

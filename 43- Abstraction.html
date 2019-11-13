@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Shape(name) {
+            this.Name = name;
+            if (this.constructor === Shape) {
+                throw new Error('Can\'t create instance of Shape');
+            }
+
+        }
+
+        Shape.prototype.Draw = function() {
+            return 'this is generic shape';
+        }
+
+        //Rectangle
+        function Rectangle(name) {
+        }
+
+        Rectangle.prototype = Object.create(Shape.prototype);
+        Rectangle.prototype.Draw = function() {
+            return 'this is Rectangle';
+        }
+
+        //Triangle
+        function Triangle(name) {
+        }
+
+        Triangle.prototype = Object.create(Shape.prototype);
+        Triangle.prototype.Draw = function() {
+            return 'this is Triangle';
+        }
+
+        //Circle
+        function Circle(name) {
+        }
+        Circle.prototype = Object.create(Shape.prototype);
+        Circle.prototype.Draw = function() {
+            return 'this is Circle';
+        }
+
+        var shapes = [new Rectangle('rec'), new Triangle('tri'), new Circle('cri')];
+        for (var i = 0; i < shapes.length; i++) {
+            console.log(shapes[i].Draw());
+        }
+
+    </script>
+</body>
+
+</html>

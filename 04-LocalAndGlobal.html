@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script type="text/javascript">
+        //Global
+        var fullName = 'Hello Sang';
+
+        function SayHello() {
+            //Local
+            var fullName2 = 'Hello Dong Heo';
+            document.write(fullName2 + '<br/>');
+
+            //Global
+            //Nguyen tac so 1
+            fullName4 = 'Hello Manh';
+        }
+        
+        //Nguyen tac so 2
+        if(true)
+        {
+            //Global
+            var fullName3 = 'Hello Ai Day';
+        }
+
+        document.write(fullName + '<br/>');
+        SayHello();
+        document.write(fullName3 + '<br/>');
+        document.write(fullName4 + '<br/>');
+
+
+
+        //Nguyen tac so 3
+        var inu = 'gau gau';
+        var doremon = 'meo meo';
+        function fightInu() {
+            //Global
+            document.write('inside: ' + inu + '<br/>');
+
+            //Local
+            var doremon = 'miu miu';
+            document.write('inside: ' + doremon + '<br/>');
+            doremon = 'miu miu 2';
+            document.write('inside: ' + doremon + '<br/>');
+        }
+        fightInu();
+        //Global
+        document.write('outside: ' + inu + '<br/>');
+        //Global
+        document.write('outside: ' + doremon + '<br/>');
+
+
+        var car = 'Toyota';
+        function hoistingVariable() {
+
+            //Global
+            document.write('inside: ' + car + '<br/>');
+            //Global
+            car = 'BWM';
+            //Global
+            document.write('inside: ' + car + '<br/>');
+        }
+        //Nguyen tac so 4
+        function hoistingVariable2() {
+
+            //Local
+            document.write('inside: ' + car + '<br/>');//undefined
+            //Local
+            var car = 'BWM';
+            //Local
+            document.write('inside: ' + car + '<br/>');
+
+            /*
+
+               var car; 
+               document.write('inside: ' + car + '<br/>');//undefined
+               car = 'BWM';
+               document.write('inside: ' + car + '<br/>');
+            */
+        }
+
+        hoistingVariable();
+        hoistingVariable2();
+        //Global
+        document.write('outside: ' + car + '<br/>')
+    </script>
+</body>
+</html>
